@@ -5,7 +5,7 @@ import Button from '../common/Button';
 import { logout } from '../Login/LoginService.js';
 import AuthContext from './context.js';
 
-function AuthButton({ className }) {
+function AuthButton() {
   const { isLogged, handleLogout: onLogout } = useContext(AuthContext);
 
   const handleLogoutClick = async () => {
@@ -13,15 +13,13 @@ function AuthButton({ className }) {
     onLogout();
   };
 
-  return isLogged ? (
-    <Button className={className} onClick={handleLogoutClick}>
-      Logout
-    </Button>
-  ) : (
-    <Button as={Link} to="/login" variant="primary" className={className}>
-      Login
-    </Button>
-  );
+  return isLogged ?(
+      <Button onClick={handleLogoutClick}>Log out</Button>
+  ):(
+      
+  <Button variant="primary">Log in</Button>
+  )
+  
 }
 
 export default AuthButton;

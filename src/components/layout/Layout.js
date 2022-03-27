@@ -1,15 +1,16 @@
+import { Outlet } from 'react-router-dom';
 import Header from './Header.js'
-function Layout({children, title, ...props}) {
+function Layout() {
     return (
-        <div className='layout' {...props}>
-            <Header {...props}/>
+        <div className='layout' >
+            <Header/>
                 <main>
-                    <h2>
+                    <Outlet />
+                  {/*  <h2>
                         {title}
                     </h2>
                     <section>
-                        {children}
-                    </section>
+                        {children}</section>*/}
                 </main>
             <footer>© 2022 KeepCoding</footer>
         </div>

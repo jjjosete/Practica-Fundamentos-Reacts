@@ -4,7 +4,7 @@ import login from './LoginService.js';
 
 import { useLocation, useNavigate } from "react-router-dom";
 function LoginPage({ onLogin }) {
-
+  
   const navigate = useNavigate();
   const location = useLocation();
     const [credentials, setCredentials] = useState({
@@ -24,15 +24,15 @@ function LoginPage({ onLogin }) {
         try {
           resetError();
           setIsLoading(true);
-          await login(credentials);
-          setIsLoading(false);
-          onLogin();
-          const from = location.state?.from?.pathname || "/";
-          navigate(from, { replace: true });
+         await login(credentials); 
+         setIsLoading(false)
+        onLogin();
+        const from = location.state?.from?.pathname || '/';
+        navigate(from, { replace: true });
         } catch (error) {
           setError(error);
           setIsLoading(false);
-          console.log(error);
+          console.log(error)
         }
       };
       const handleChange = event => {
