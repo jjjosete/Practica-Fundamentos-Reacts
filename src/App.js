@@ -5,6 +5,7 @@ import AddDetail from './components/AddDetail/AddDetail.js'
 import AddsPage from './components/AddsPage/AddsPage.js'
 import LoginPage from './components/Login/LoginPage.js';
 import RequireAuth from './components/auth/RequireAuth.js';
+import AuthContext from './components/auth/context.js';
 
 import './App.css';
 
@@ -21,32 +22,62 @@ function App({isInitiallyLogged}) {
       <div className="App">
         <Routes>
           <Route path="login" element={<LoginPage onLogin={handleLogin} />} />
-          <Route path="/" element={<Navigate to="/adverts" /> } />
-          <Route path="/adverts" element={
-
-          <RequireAuth isLogged={isLogged}>
-          <AddsPage isLogged={isLogged} onLogin={handleLogin} onLogout={handleLogout} end
+          <Route path="/" element={<Navigate to="/adverts" />} />
+          <Route
+            path="/adverts"
+            element={
+              <RequireAuth isLogged={isLogged}>
+                <AddsPage
+                  isLogged={isLogged}
+                  onLogin={handleLogin}
+                  onLogout={handleLogout}
+                  end
+                />
+              </RequireAuth>
+            }
           />
-        </RequireAuth>}  />
-        <Route path="/adverts/:addId" element={
 
-        <RequireAuth isLogged={isLogged}>
-        <AddDetail isLogged={isLogged} onLogin={handleLogin} onLogout={handleLogout} end
-        />
-        </RequireAuth>}  />
-
-          <Route path="/adverts/new" element={
-          <RequireAuth isLogged={isLogged}>
-              <NewAdd isLogged={isLogged} onLogout={handleLogout} />
-            </RequireAuth>} />
-          <Route path="/404" element={<div>404 | Not Found</div>}/>
-          <Route path="*" element={<Navigate to="/404"/>} />
+          <Route
+            path="/adverts/:addId"
+            element={
+              <RequireAuth isLogged={isLogged}>
+                <AddDetail
+                  isLogged={isLogged}
+                  onLogin={handleLogin}
+                  onLogout={handleLogout}
+                  end
+                />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/adverts/:addTag"
+            element={
+              <RequireAuth isLogged={isLogged}>
+                <AddsPage
+                  isLogged={isLogged}
+                  onLogin={handleLogin}
+                  onLogout={handleLogout}
+                  end
+                />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/adverts/new"
+            element={
+              <RequireAuth isLogged={isLogged}>
+                <NewAdd isLogged={isLogged} onLogout={handleLogout} />
+              </RequireAuth>
+            }
+          />
+          <Route path="/404" element={<div>404 | Not Found</div>} />
+          <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
         {/**
          *{isLogged ? <AddsPage isLogged={isLogged} onLogout={handleLogout}/> : <LoginPage onLogin={handleLogin}/>}
          *    <NewAdd />
          */}
-       
       </div>
     ); 
 }

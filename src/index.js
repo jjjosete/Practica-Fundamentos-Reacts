@@ -15,7 +15,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
     <App isInitiallyLogged={!!accessToken}/>
-
     </Router>
     </React.StrictMode>,
   document.getElementById('root')
