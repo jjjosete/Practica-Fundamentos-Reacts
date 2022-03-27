@@ -1,13 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './App.js';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter as Router} from 'react-router-dom';
+import storage from './utils/storage.js'
+import { setAuthorizationHeader } from './API/client.js';
+
+
+const accessToken =storage.get('auth');
+setAuthorizationHeader(accessToken)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Router>
+    <App isInitiallyLogged={!!accessToken}/>
+
+    </Router>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
