@@ -1,8 +1,9 @@
-
+import Layout from "../layout/Layout.js";
 import Button from "../common/Button.js";
 import { useState } from "react";
 import { useEffect } from "react/cjs/react.production.min";
 import postAdd from "./NewAddService.js";
+import Page from "../layout/page.js";
 /**En la clase 3 se explica, 1:55
  * cómo hacer un input de tipo select para los tags
  */
@@ -40,6 +41,7 @@ const NewAdd = () => {
         }
       };
   return (
+      <Page title={"Nuevo anuncio"} >
         <form onSubmit={handleSubmit}>
           <label htmlFor="name">Nombre del artículo</label>
           <input
@@ -89,6 +91,7 @@ const NewAdd = () => {
         </Button>
         </form>
 
+      </Page>
     );
   };
 

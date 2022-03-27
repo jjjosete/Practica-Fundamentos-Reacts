@@ -1,13 +1,13 @@
-import Layout from "../layout/Layout.js"
+import Page from'../layout/page.js'
 import { useParams } from "react-router-dom";
 const AddDetail = () => {
     
     const params = useParams();
     console.log(params)
     return (
-        <Layout title={"Detalle de anuncio"}>
+        <Page title={"Detalle de anuncio"}>
 <div> Esto es la página del detalle de anuncio </div>
-        </Layout>
+        </Page>
     )
 }
 

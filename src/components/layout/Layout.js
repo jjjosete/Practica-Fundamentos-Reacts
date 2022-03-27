@@ -6,11 +6,7 @@ function Layout() {
             <Header/>
                 <main>
                     <Outlet />
-                  {/*  <h2>
-                        {title}
-                    </h2>
-                    <section>
-                        {children}</section>*/}
+                  {/*  */}
                 </main>
             <footer>© 2022 KeepCoding</footer>
         </div>

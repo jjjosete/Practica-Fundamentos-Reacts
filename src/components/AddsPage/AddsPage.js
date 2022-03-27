@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getLatestAdds } from "./AddsService.js";
 import { Link, } from "react-router-dom";
+import Page from "../layout/page.js";
 
 const AddsPage = () => {
     let [adds, setAdds] = useState([]);
@@ -15,7 +16,7 @@ const AddsPage = () => {
     },[]);
     
     return (
-      
+      <Page title={'Lista de anuncios'} >
         <div className="addsPage">
          
           
@@ -40,7 +41,7 @@ const AddsPage = () => {
             ))}
           </ul>
         </div>
-      
+      </Page>
     );
 }
 
